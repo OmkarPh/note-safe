@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NotePreviewWrapper = styled.div`
+const NotePreviewWrapper = styled.a`
     @-webkit-keyframes grow {
         from {
             -webkit-transform:scale(1);
@@ -11,6 +11,7 @@ const NotePreviewWrapper = styled.div`
     }
     &:hover{
         cursor: pointer;
+        text-decoration: none;
     }
     &{
         display: inline-block;

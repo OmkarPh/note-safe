@@ -1,10 +1,12 @@
 import React, {useState, useRef} from 'react';
+import {Link} from 'react-router-dom';
 
 import NotePreviewWrapper from './NotePreview.style';
 
 
-export default function NotePreview({title, previewDescription}){
-    let [style, setStyle] = useState("hidden");
+export default function NotePreview({noteDetails}){
+    const {title, preview, id} = noteDetails;
+    // let [style, setStyle] = useState("hidden");
     const editIcon = useRef(null);
     const noteTitle = useRef(null);
 
@@ -19,6 +21,7 @@ export default function NotePreview({title, previewDescription}){
 
     return(
         <NotePreviewWrapper 
+            href={`/note/${id}`}
             className="notePreview max-w-md mx-auto flex p-4 pl-2 bg-gray-100 mt-7 shadow-xl hover:shadow-md "
             onMouseEnter={hovered}
             onMouseLeave={hoveredOut}
@@ -31,9 +34,10 @@ export default function NotePreview({title, previewDescription}){
                     <i className="fas fa-edit editIt" ref={editIcon}/>
                 </span>
                 <p className="description text-base text-gray-700 leading-normal">
-                    {previewDescription}
+                    {preview}
                 </p>
             </div>
+            
         </NotePreviewWrapper>
     );
 }

@@ -1,13 +1,14 @@
-import { useState } from 'react';
-
-let counter = 0;
-let adder = 0;
+import { useState, useEffect } from 'react';
 
 export default function useLocalStorageState(key, defaultValue, parseJson=true){
 
-
   // Default value for initialState
   let initialState = defaultValue;
+
+  if(!parseJson && typeof defaultValue !== "string"){
+    throw new Error("If parseJson is specified false, defaultValue must be a string; otherwise set parseJson to true");
+  }
+
   try {
     // Get key from local storage
     const item = window.localStorage.getItem(key);
@@ -33,13 +34,15 @@ export default function useLocalStorageState(key, defaultValue, parseJson=true){
   const [state, setState] = useState(initialState);
 
   // Wrapper to Sync changes in state to storage
-  const setValue = value => {
+  const setValue = (value, setStorageOnly=false) => {
     try {
       // Allow value to be a function so we have same API as useState
       const valueToStore = value instanceof Function ? value(state) : value;
 
+      
       // Save state
-      setState(valueToStore);
+      if(!setStorageOnly)
+        setState(valueToStore);
 
       // Set string as it is in local storage
       if(!parseJson)
@@ -64,25 +67,30 @@ export default function useLocalStorageState(key, defaultValue, parseJson=true){
     }
   }
 
-  // 2 way sync not working yet
-  // // Sync changes done in storage to state automatically
-  // function checkChanges() {
-  //   const item = localStorage.getItem(key);
-  //   console.log("Inside check changes");
-  //   if (item) {
-  //     console.log("Item is there counter",++counter);
-  //     if(parseJson)
-  //       setState(JSON.parse(item));
-  //     else 
-  //       setState(item);
-  //   }else{
-  //     console.log("Item is not there");
-  //     if(parseJson)
-  //       setState({});
-  //     else
-  //       setState("");
-  //   }
-  // }
+  
+  useEffect(() => {
+    // Sync changes done in storage to state automatically
+    function checkChanges(event) {
+      const item = event.newValue;
+      if (item) {
+        if(parseJson)
+          setState(JSON.parse(item));
+        else 
+          setState(item);
+      }else{
+        if(parseJson)
+          setState(defaultValue);
+        else
+          setState(defaultValue);
+      }
+    }
+
+    window.addEventListener("storage", event => event.key === key ? checkChanges(event) : "");
+
+    return () => {
+      window.removeEventListener("storage", event =>event.key === key ? checkChanges(event) : "");
+    };
+  }, [key]);
 
   return [state, setValue, removeValue];
 }

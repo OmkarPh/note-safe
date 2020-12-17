@@ -18,8 +18,8 @@ body {
 }
 
 /* Used to prevent unpleasant outline given by browsers */
-input:focus, 
-input:active {
+input:focus, input:active,
+textarea:focus, textarea:active {
   outline: none;
 }
 
