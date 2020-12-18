@@ -11,11 +11,20 @@ const NotePreviewWrapper = styled.a`
     }
     &:hover{
         cursor: pointer;
+        font-size: large;
         text-decoration: none;
+        #editIcon{
+            visibility: visible;
+            font-size: 25px;    
+        }
+        #noteTitle{
+            text-decoration: underline;
+        }
     }
     &{
         display: inline-block;
         width: 30%;
+        max-width: 500px;
         border-radius: 10px;
     }
     .headline *{
@@ -26,6 +35,7 @@ const NotePreviewWrapper = styled.a`
         float: right;
         font-size: 20px;
         color: green;
+        transition: font-size 0.2s;
     }
     @media only screen and (max-width: 720px) {
         &{

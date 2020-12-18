@@ -14,7 +14,7 @@ const SingleNoteWrapper = styled.div`
     }
     .fields {
         border: none;
-        border-bottom: 3px solid rgba(191, 191, 191, 0.2);
+        border-bottom: 4px solid rgba(191, 191, 191, 0.2);
         border-radius: 5px;
         background: transparent;
         display: block;
@@ -29,7 +29,7 @@ const SingleNoteWrapper = styled.div`
         }
         &:focus{
             outline: none;
-            border-bottom: 3px solid rgba(51, 153, 255, 1);
+            border-bottom: 4px solid rgba(51, 153, 255, 1);
         }
     }
 

@@ -6,9 +6,6 @@ import '../tailwind.output.css';
 import { useLocalStorageState } from '../hooks';
 
 import HomeWrapper from './HomeStyled';
-import { v4 as uuidv4 } from 'uuid';
-
-import DribbleButton from 'react-dribble-button';
 
 import NotePreview from "../components/NotePreview/";
 
@@ -26,9 +23,13 @@ const Home = () => {
 
     return (
         <HomeWrapper> 
-            <DribbleButton color="green" onClick={()=>{window.location.href="/note/new"}} className="addNew" animationDuration={300} >
-                Make a new Note &nbsp; <i className="fa fa-plus" aria-hidden="true" /> 
-            </DribbleButton>
+            <span id="newNote">
+                <a href="/new"  class="button five">
+                    Make a new note &nbsp;
+                    <i className="fa fa-plus" aria-hidden="true"/>
+                </a>
+	<div></div>
+            </span>
             <h1 className="yourNotes"> Your notes </h1>
             <div className="noteList">
                 {
