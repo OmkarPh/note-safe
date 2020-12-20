@@ -37,6 +37,8 @@ const NotePreviewWrapper = styled.a`
         color: green;
         transition: font-size 0.2s;
     }
+
+
     @media only screen and (max-width: 720px) {
         &{
             width: 90%

@@ -29,6 +29,7 @@ const HomeWrapper = styled.div`
         width: fit-content;
     }
 
+
     #newNote{
         display: block;
         margin-bottom: 10px;
@@ -37,15 +38,16 @@ const HomeWrapper = styled.div`
         div{
             width: auto;
         }
-        .button{
+        .newNoteLink{
             text-decoration: none;
             color: black;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 30px;
             position: relative;
             padding: 10px;
+            color: green;
         }
-        a.button.five:after{
+        .newNoteLink:after{
             content: '';
             position: absolute;
             bottom: 0;
@@ -54,11 +56,14 @@ const HomeWrapper = styled.div`
             width: 0%;
             height: 100%;
             
-            border-bottom: 4px solid black;
+            border-bottom: 4px solid green;
             
             transition: width 0.3s ease;
         }
-        a.button.five:hover:after{
+        .newNoteLink:hover{
+            color: green;
+        }
+        .newNoteLink:hover:after{
             left: 0;
             width: 100%;
             transition: width .3s ease;

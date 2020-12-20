@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 import '../tailwind.output.css';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 
 import { useLocalStorageState } from '../hooks';
 
@@ -24,12 +25,13 @@ const Home = () => {
     return (
         <HomeWrapper> 
             <span id="newNote">
-                <a href="/new"  class="button five">
+                <a href="/new"  class="newNoteLink">
                     Make a new note &nbsp;
                     <i className="fa fa-plus" aria-hidden="true"/>
                 </a>
-	<div></div>
+	            <div></div>
             </span>
+            <br/>
             <h1 className="yourNotes"> Your notes </h1>
             <div className="noteList">
                 {
@@ -38,7 +40,6 @@ const Home = () => {
                         return <NotePreview noteDetails={note} key={note.id}/>
                     })
                 }
-                <a style={{fontSize:"90px"}} href="/new">+</a>
             </div>
         </HomeWrapper>
     );

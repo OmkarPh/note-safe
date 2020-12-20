@@ -76,22 +76,6 @@ const SingleNoteWrapper = styled.div`
         min-height: 500px;
     }
     
-    /* .headInp:focus+.underline {
-        transform: scale(1);
-    } */
-/*     
-    .underline {
-        background-color: dodgerblue;
-        display: inline-block;
-        height: 2px;
-        position: absolute;
-        -webkit-transform: scale(0, 1);
-        transform: scale(0, 1);
-        -webkit-transition: all 0.5s linear;
-        transition: all 0.1s linear;
-        width: 202px;
-    } */
-
     @media only screen and (max-width: 720px) {
     }
     @media only screen and (min-width: 720px) {
