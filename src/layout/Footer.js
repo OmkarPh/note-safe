@@ -2,8 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer>
-      <h5>Footer</h5>
+    <footer style={{bottom:"0px"}}>
     </footer>
   )
 }
