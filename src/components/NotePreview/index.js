@@ -1,5 +1,4 @@
-import React, {useState, useRef} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
 
 import NotePreviewWrapper from './NotePreview.style';
 
@@ -11,7 +10,7 @@ export default function NotePreview({noteDetails}){
 
     return(
         <NotePreviewWrapper 
-            href={`/note/${id}`}
+            to={`/note/${id}`}
             className="notePreview max-w-md mx-auto flex p-4 pl-2 bg-gray-100 mt-7 shadow-xl hover:shadow-md "
         >
             <div className="ml-2 pt-1">
@@ -20,6 +19,7 @@ export default function NotePreview({noteDetails}){
                         {title}
                     </h1>
                     <i className="fas fa-edit editIt" id="editIcon"/>
+                    {/* <i className="fas fa-delete deleteIt" id="deleteIcon"/> */}
                 </span>
                 <p className="description text-base text-gray-700 leading-normal">
                     {preview}

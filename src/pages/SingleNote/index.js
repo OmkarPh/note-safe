@@ -4,12 +4,13 @@ import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import { useLocalStorageState } from '../../hooks/'
+import { useDocumentTitle, useLocalStorageState } from '../../hooks/'
 import SingleNoteWrapper from './singleNote.styled';
 
 
 export default function SingleNote(){
     let { id } = useParams();
+
     // useEffect(()=>{
     //     if(id === "new"){
     //         do{
@@ -21,6 +22,7 @@ export default function SingleNote(){
     // },[]);
     
     const [{title, preview, body}, setThisNote] = useLocalStorageState(id, {title:"",preview:"",body:""});
+    useDocumentTitle(title);
 
     const [titleTemp, setTitle] = useState(title);
     const [previewTemp, setPreview] = useState(preview);

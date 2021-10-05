@@ -25,10 +25,10 @@ const Home = () => {
     return (
         <HomeWrapper> 
             <span id="newNote">
-                <a href="/new"  class="newNoteLink">
+                <Link to="/new"  class="newNoteLink">
                     Make a new note &nbsp;
                     <i className="fa fa-plus" aria-hidden="true"/>
-                </a>
+                </Link>
 	            <div></div>
             </span>
             <br/>

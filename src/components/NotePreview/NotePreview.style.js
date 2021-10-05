@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
-const NotePreviewWrapper = styled.a`
+const NotePreviewWrapper = styled(Link)`
     @-webkit-keyframes grow {
         from {
             -webkit-transform:scale(1);
@@ -13,7 +14,7 @@ const NotePreviewWrapper = styled.a`
         cursor: pointer;
         font-size: large;
         text-decoration: none;
-        #editIcon{
+        #editIcon, #deleteIcon{
             visibility: visible;
             font-size: 25px;    
         }
@@ -30,7 +31,7 @@ const NotePreviewWrapper = styled.a`
     .headline *{
         display: inline-flex;
     }
-    .editIt{
+    .editIt, .deleteIt{
         visibility: hidden;
         float: right;
         font-size: 20px;

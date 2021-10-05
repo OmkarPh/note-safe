@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import HeaderWrapper from './HeaderStyled';
 import icon from '../assets/icons/favicon.png';
@@ -8,11 +9,11 @@ function Header() {
       <HeaderWrapper className="w-screen flex flex-row items-center justify-between shadow-xs">
         <div className="w-full container mx-auto">
           <div className="w-full flex items-center justify-between">
-            <a className="flex items-center no-underline hover:no-underline font-bold text-xl lg:text-3xl homeLink"
-              href="/">
+            <Link className="flex items-center no-underline hover:no-underline font-bold text-xl lg:text-3xl homeLink"
+              to="/">
               <img src={icon} width="35px" alt={"Note Safe"} width="65px"/>
               &nbsp; Note Safe
-            </a>
+            </Link>
 
             <div className="flex w-1/2 justify-end content-center socialLinks">
               <a href="https://omkarph.herokuapp.com/" target="_blank" rel="noreferrer"
