@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
-import '../tailwind.output.css';
+import 'tailwindcss/dist/tailwind.min.css'
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 
 import { useLocalStorageState } from '../hooks';
@@ -25,7 +25,7 @@ const Home = () => {
     return (
         <HomeWrapper> 
             <span id="newNote">
-                <Link to="/new"  class="newNoteLink">
+                <Link to="/new"  className="newNoteLink">
                     Make a new note &nbsp;
                     <i className="fa fa-plus" aria-hidden="true"/>
                 </Link>
